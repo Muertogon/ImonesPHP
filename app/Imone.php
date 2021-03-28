@@ -41,14 +41,14 @@ class Imone extends DB {
             $stmt->bindParam(':veikla',$this->veikla,PDO::PARAM_STR);
             $stmt->bindParam(':vadovas',$this->vadovas,PDO::PARAM_STR);
             $stmt->execute();
-            header('Location:/ImonesPHPwitSQL');
+            header('Location:/ImonesPHPwitSQL/all');
         } catch(\PDOException $e){
             echo $e->getMessage();
         }
     }
     public function allCorps(){
         try{
-            $data=$this->pdo->prepare("select * from imones");
+        $data=$this->pdo->prepare("SELECT * FROM imones");
             $data->execute();
             return $sql = $data->fetchAll(PDO::FETCH_ASSOC);
         } catch (\PDOException $e){
@@ -60,7 +60,7 @@ class Imone extends DB {
             $stmt=$this->pdo->prepare("DELETE FROM imones WHERE `id`=:id");
             $stmt->bindValue(":id",$id,PDO::PARAM_INT);
             $stmt->execute();
-            header('Location:/ImonePHPwitSQL/');
+            header('Location:/ImonesPHPwitSQL/all');
         }catch (\PDOException $e){
             echo $e->getMessage();
         }
@@ -79,11 +79,22 @@ class Imone extends DB {
             $data->bindParam(':veikla',$veikla,PDO::PARAM_STR);
             $data->bindParam(':vadovas',$vadovas,PDO::PARAM_STR);
             $data->execute();
-            header('Location:/ImonePHPwitSQL/');
+            header('Location:/ImonesPHPwitSQL/');
         }catch (\PDOException $e){
             echo $e->getMessage();
         }
     }
+    public function searchCorp($name){
+        try {
+            $data=$this->pdo->prepare("SELECT pavadinimas, kodas, pvm_kodas, adresas, telefonas, el_pastas, veikla, vadovas  FROM imones WHERE 
+                                            `pavadinimas`=:pavadinimas");
+            $data->bindValue(":pavadinimas",$name, PDO::PARAM_STR);
+            $data->execute();
+            return $sql = $data->fetchAll(PDO::FETCH_ASSOC);
+        }catch (\PDOException $e){
+            echo $e->getMessage();
+        }
+}
 
 
 

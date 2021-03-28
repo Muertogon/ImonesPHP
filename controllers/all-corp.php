@@ -34,7 +34,12 @@ $imone->allCorps();
         <?php foreach ($imone->allCorps() as $row){
             echo "<tr>";
             echo "<td>".$row['id']."</td>";
-            echo "<td>".$row['pavadinimas']."</td>";
+            echo "<td>";
+            echo "<form action=/ImonesPHPwitSQL/corp method='post'>";
+            echo '<input type=hidden name="'.$row['pavadinimas'].'"value="'.$row['pavadinimas'].'">';
+            echo '<button type="submit" class="btn btn-primary" name="show">'.$row['pavadinimas'].'</button>';
+            echo "</form>";
+            echo "</td>";
             echo "<td>".$row['kodas']."</td>";
             echo "<td>".$row['pvm_kodas']."</td>";
             echo "<td>".$row['adresas']."</td>";
