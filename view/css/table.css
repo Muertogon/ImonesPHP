@@ -1,0 +1,9 @@
+table,td,tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.o{
+    color: #9d9d9d;
+    background-color: #222222;
+}
