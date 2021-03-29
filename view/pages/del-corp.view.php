@@ -5,12 +5,16 @@
 </head>
 <body>
 <?php include "./view/_partials/nav.view.php";?>
-<h2>Delete Corp</h2>
-<form method="post">
-    <div class="form-group">
-        <input type="text" placeholder="Imones ID" class="form-control" id="id" name="id">
+<div class="container">
+    <div class="row justify-content-md-center">
+        <h2>Delete Corp</h2>
+        <form method="post">
+            <div class="form-group">
+                <input type="text" placeholder="Imones ID" class="form-control" id="id" name="id">
+            </div>
+            <button type="submit" class="btn btn-dark" name="delete">Delete</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary" name="delete">Delete</button>
-</form>
+</div>
 </body>
 </html>

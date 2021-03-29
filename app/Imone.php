@@ -79,7 +79,10 @@ class Imone extends DB {
             $data->bindParam(':veikla',$veikla,PDO::PARAM_STR);
             $data->bindParam(':vadovas',$vadovas,PDO::PARAM_STR);
             $data->execute();
-            header('Location:/ImonesPHPwitSQL/');
+            if($data->rowcount() >0 ) {
+                echo "Rezultatu Nera";
+            }
+            header('Location:/ImonesPHPwitSQL/create');
         }catch (\PDOException $e){
             echo $e->getMessage();
         }
@@ -90,11 +93,15 @@ class Imone extends DB {
                                             `pavadinimas`=:pavadinimas");
             $data->bindValue(":pavadinimas",$name, PDO::PARAM_STR);
             $data->execute();
-            return $sql = $data->fetchAll(PDO::FETCH_ASSOC);
+            if ($data->rowCount() > 0) {
+                return $sql = $data->fetchAll(PDO::FETCH_ASSOC);
+            }else{
+                echo 'Nera irasu';
+            }
         }catch (\PDOException $e){
             echo $e->getMessage();
         }
-}
+    }
 
 
 
