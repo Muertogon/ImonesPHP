@@ -26,8 +26,8 @@ class Registration extends DB{
             $no = $val2->fetchColumn();
             $stmt=$this->pdo->prepare($query);
             $stmt->bindParam(':email',$this->email,PDO::PARAM_STR);
-            //$pass = password_hash($this->password, PASSWORD_BCRYPT);
-            $stmt->bindParam(':password',$this->password,PDO::PARAM_STR);
+            $pass = password_hash($this->password, PASSWORD_BCRYPT);
+            $stmt->bindParam(':password',$pass,PDO::PARAM_STR);
             if($no != 0){
                 echo "Toks email jau naudojamas";
             }else{
