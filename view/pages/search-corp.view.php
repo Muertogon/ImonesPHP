@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!$_SESSION['email'] == 1){
+    header('location:/ImonesPHPwitSQL/login');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

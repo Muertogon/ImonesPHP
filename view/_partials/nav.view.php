@@ -15,6 +15,7 @@
                 <li><a href="/ImonesPHPwitSQL/create">Create Corp</a></li>
                 <li><a href="/ImonesPHPwitSQL/update">Update Corp</a></li>
                 <li><a href="/ImonesPHPwitSQL/delete">Delete Corp</a></li>
+                <li><a href="controllers/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>
